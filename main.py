@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import argparse, sys
-from min_quadrados import minimos_quadrados
+from min_quadrados import minimos_quadrados, fx
 
-def main(grau):
+def main(grau, valor_x):
 	dados = []
 	# Ler valores do arquivo (x e f(x))
 	with open("dados", "r") as f:
@@ -19,12 +19,18 @@ def main(grau):
 	print "\nB:\n", B
 	print "\nX:\n", X
 
+	if valor_x is not None:
+		print "\nF("+str(valor_x)+"):\n", fx(valor_x, X)
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-g", type=int, default=1,
-                        help="Definir grau do polinômio")
+	parser = argparse.ArgumentParser()
+	parser.add_argument("-g", type=int, default=1,
+	 					help="Definir grau do polinômio")
+	parser.add_argument("-f", type=int, default=None,
+						help="Valor de x, para calcular o f(x)")
 
-    args = parser.parse_args()
-    grau = args.g
-    main(grau)
+	args = parser.parse_args()
+	grau = args.g
+	x = args.f
+	main(grau, x)

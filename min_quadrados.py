@@ -35,3 +35,10 @@ def minimos_quadrados(grau, dados):
 	X = np.linalg.solve(np.array(A), np.array(B))
 
 	return A, B, X
+
+def fx(valor_x, X):
+	fx = 0
+	for i in range(len(X)):
+		fx +=   X[i]* (valor_x)**i
+
+	return fx
