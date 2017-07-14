@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import argparse, sys
-from min_quadrados import minimos_quadrados, fx
+from min_quadrados import minimos_quadrados, px
 
 def main(grau, valor_x):
 	dados = []
@@ -20,17 +20,17 @@ def main(grau, valor_x):
 	print "\nX:\n", X
 
 	if valor_x is not None:
-		print "\nF("+str(valor_x)+"):\n", fx(valor_x, X)
+		print "\np("+str(valor_x)+"):\n", px(valor_x, X)
 
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser()
 	parser.add_argument("-g", type=int, default=1,
 	 					help="Definir grau do polinômio")
-	parser.add_argument("-f", type=int, default=None,
-						help="Valor de x, para calcular o f(x)")
+	parser.add_argument("-p", type=float, default=None,
+						help="Valor de x, para calcular o p(x)")
 
 	args = parser.parse_args()
 	grau = args.g
-	x = args.f
+	x = args.p
 	main(grau, x)

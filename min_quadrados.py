@@ -36,9 +36,9 @@ def minimos_quadrados(grau, dados):
 
 	return A, B, X
 
-def fx(valor_x, X):
-	fx = 0
+def px(valor_x, X):
+	px = 0
 	for i in range(len(X)):
-		fx +=   X[i]* (valor_x)**i
+		px +=   X[i]* (valor_x)**i
 
-	return fx
+	return px
